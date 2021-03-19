@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[arabic,english]{babel}
+\DeclareMathSymbol{\mtimes}{\mathbin}{symbols}{"02}
+\usepackage{amsmath,amssymb,scalefnt}
+\usepackage{makecell}
+\usepackage{tikz}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{pgfplots}
+\usepackage{apacite}
+\usepackage[most]{tcolorbox}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{pythontex}
+
+\begin{document}
+
+\begin{pycode}
+v=['79.2 \\%', '12.63 \\%', '63.64 \\%', '80.0 \\%', '11', '215', '97.6 \\%', '24.7 \\%', '100.0 \\%', '97.45 \\%', '12', '196', '73.26 \\%', '10.57 \\%', '62.5 \\%', '74.36 \\%', '16', '156', '74.27 \\%', '10.65 \\%', '64.29 \\%', '75.16 \\%', '14', '157', '77.7 \\%', '10.93 \\%', '80.0 \\%', '77.52 \\%', '10', '129', '74.86 \\%', '9.51 \\%', '50.0 \\%', '78.06 \\%', '20', '155', '86.84 \\%', '23.24 \\%', '50.0 \\%', '88.89 \\%', '2', '36', '62.5 \\%', '10.99 \\%', '33.33 \\%', '75.0 \\%', '12', '28', '89.11 \\%', '13.46 \\%', '75.0 \\%', '89.69 \\%', '4', '97', '93.55 \\%', '32.22 \\%', 'NULL', '93.55 \\%', '0', '31', '48.0 \\%', '12.97 \\%', '50.0 \\%', '47.83 \\%', '2', '23', '0.0 \\%', '0.0 \\%', 'NULL', '0.0 \\%', '0', '1', '46.15 \\%', '12.63 \\%', 'NULL', '46.15 \\%', '0', '13', '99.87 \\%', '49.97 \\%', 'NULL', '99.87 \\%', '0', '787', '87.21 \\%', '73.14 \\%', '63.11 \\%', '88.44 \\%', '92', '11.4']
+\end{pycode}
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l | l | l |}
+    \hline
+    \makecell{tag} & accuracy & f1 score & \makecell{accuracy for \\ unknown \\ words} & \makecell{accuracy for \\ known \\ words} & \makecell{number of \\ unknown \\ words} & \makecell{number of \\ known \\ words} \\ \hline
+    \makecell{A \\ (\AR{إسم})}& \py{v[0]} & \py{v[1]} & \py{v[2]} & \py{v[3]} & \py{v[4]} & \py{v[5]}  \\ \hline
+    \makecell{B \\ (\AR{رقم})} & \py{v[6]} & \py{v[7]} & \py{v[8]} & \py{v[9]} & \py{v[10]} & \py{v[11]}  \\ \hline
+    \makecell{C \\ (\AR{إسم معرف})} & \py{v[12]} & \py{v[13]} & \py{v[14]} & \py{v[15]} & \py{v[16]} & \py{v[17]}  \\
+    \hline
+    \makecell{D \\ (\AR{إضافة})} & \py{v[18]} & \py{v[19]} & \py{v[20]} & \py{v[21]} & \py{v[22]} & \py{v[23]}  \\ \hline
+    \makecell{E \\ (\AR{منعوت})} & \py{v[24]} & \py{v[25]} & \py{v[26]} & \py{v[27]} & \py{v[28]} & \py{v[29]}  \\ \hline
+    \makecell{F \\ (\AR{نعت})} & \py{v[30]} & \py{v[31]} & \py{v[32]} & \py{v[33]} & \py{v[34]} & \py{v[35]}  \\
+    \hline 
+    \makecell{G \\ (\AR{حرف جر})}& \py{v[36]} & \py{v[37]} & \py{v[38]} & \py{v[39]} & \py{v[40]} & \py{v[41]}  \\ \hline
+    \makecell{H \\ (\AR{إسم مجرور})} & \py{v[42]} & \py{v[43]} & \py{v[44]} & \py{v[45]} & \py{v[46]} & \py{v[47]}  \\ \hline
+    \makecell{I \\ (\AR{وحدة قيس})}& \py{v[48]} & \py{v[49]} & \py{v[50]} & \py{v[51]} & \py{v[52]} & \py{v[53]}  \\ \hline
+    \makecell{J \\ (\AR{واو العطف})} & \py{v[54]} & \py{v[55]} & \py{v[56]} & \py{v[57]} & \py{v[58]} & \py{v[59]}  \\ \hline
+    \makecell{K \\ \AR{فعل مبني })\\\AR{للمجهول)}} & \py{v[60]}& \py{v[61]} & \py{v[62]} & \py{v[63]} & \py{v[64]} & \py{v[65]}  \\ \hline
+    \makecell{L \\ (\AR{المفعول المطلق})} & \py{v[66]} & \py{v[67]} & \py{v[68]} & \py{v[69]}  & \py{v[70]} & \py{v[71]}  \\ \hline
+      \makecell{M \\ \AR{أداةُ عَطْفٍ غير })\\\AR{واو العطف)}} & \py{v[72]} & \py{v[73]} & \py{v[74]}  & \py{v[75]} & \py{v[76]} & \py{v[77]} \\ \hline
+    \makecell{.} & \py{v[78]} & \py{v[79]} & \py{v[80]} & \py{v[81]} & \py{v[82]} & \py{v[83]} \\
+    \hline 
+    
+    \end{tabular}
+    \label{tab:tab9}
+\end{center}
+\caption{Performances for each tag of our ingredient extractor for fold 4 and for the first layer with $\lambda = 4$ using a first order HMM }
+\end{table}
+
+
+\begin{pycode}
+v1=['93.81 \\%', '62.21 \\%', '90.91 \\%', '93.95 \\%', '11', '215', '99.04 \\%', '49.76 \\%', '100.0 \\%', '98.98 \\%', '12', '196', '93.6 \\%', '46.93 \\%', '93.75 \\%', '93.59 \\%', '16', '156', '84.8 \\%', '82.49 \\%', '50.0 \\%', '87.9 \\%', '14', '157', '87.05 \\%', '42.64 \\%', '40.0 \\%', '90.7 \\%', '10', '129', '78.29 \\%', '54.75 \\%', '65.0 \\%', '80.0 \\%', '20', '155', '92.11 \\%', '47.95 \\%', '100.0 \\%', '91.67 \\%', '2', '36', '67.5 \\%', '46.34 \\%', '50.0 \\%', '75.0 \\%', '12', '28', '99.01 \\%', '66.5 \\%', '100.0 \\%', '98.97 \\%', '4', '97', '96.77 \\%', '49.18 \\%', 'NULL', '96.77 \\%', '0', '31', '76.0 \\%', '28.79 \\%', '100.0 \\%', '73.91 \\%', '2', '23', '0.0 \\%', '0.0 \\%', 'NULL', '0.0 \\%', '0', '1', '92.31 \\%', '48.0 \\%', 'NULL', '92.31 \\%', '0', '13', '99.87 \\%', '49.97 \\%', 'NULL', '99.87 \\%', '0', '787', '93.61 \\%', '66.42 \\%', '72.82 \\%', '94.66 \\%', '92', '11.4']
+\end{pycode}
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l | l | l |}
+    \hline
+    \makecell{tag} & accuracy & f1 score & \makecell{accuracy for \\ unknown \\ words} & \makecell{accuracy for \\ known \\ words} & \makecell{number of \\ unknown \\ words} & \makecell{number of \\ known \\ words} \\ \hline
+    \makecell{A \\ (\AR{إسم})}& \py{v1[0]} & \py{v1[1]} & \py{v1[2]} & \py{v1[3]} & \py{v1[4]} & \py{v1[5]}  \\ \hline
+    \makecell{B \\ (\AR{رقم})} & \py{v1[6]} & \py{v1[7]} & \py{v1[8]} & \py{v1[9]} & \py{v1[10]} & \py{v1[11]}  \\ \hline
+    \makecell{C \\ (\AR{إسم معرف})} & \py{v1[12]} & \py{v1[13]} & \py{v1[14]} & \py{v1[15]} & \py{v1[16]} & \py{v1[17]}  \\
+    \hline
+    \makecell{D \\ (\AR{إضافة})} & \py{v1[18]} & \py{v1[19]} & \py{v1[20]} & \py{v1[21]} & \py{v1[22]} & \py{v1[23]}  \\ \hline
+    \makecell{E \\ (\AR{منعوت})} & \py{v1[24]} & \py{v1[25]} & \py{v1[26]} & \py{v1[27]} & \py{v1[28]} & \py{v1[29]}  \\ \hline
+    \makecell{F \\ (\AR{نعت})} & \py{v1[30]} & \py{v1[31]} & \py{v1[32]} & \py{v1[33]} & \py{v1[34]} & \py{v1[35]}  \\
+    \hline 
+    \makecell{G \\ (\AR{حرف جر})}& \py{v1[36]} & \py{v1[37]} & \py{v1[38]} & \py{v1[39]} & \py{v1[40]} & \py{v1[41]}  \\ \hline
+    \makecell{H \\ (\AR{إسم مجرور})} & \py{v1[42]} & \py{v1[43]} & \py{v1[44]} & \py{v1[45]} & \py{v1[46]} & \py{v1[47]}  \\ \hline
+    \makecell{I \\ (\AR{وحدة قيس})}& \py{v1[48]} & \py{v1[49]} & \py{v1[50]} & \py{v1[51]} & \py{v1[52]} & \py{v1[53]}  \\ \hline
+    \makecell{J \\ (\AR{واو العطف})} & \py{v1[54]} & \py{v1[55]} & \py{v1[56]} & \py{v1[57]} & \py{v1[58]} & \py{v1[59]}  \\ \hline
+    \makecell{K \\ \AR{فعل مبني })\\\AR{للمجهول)}} & \py{v1[60]}& \py{v1[61]} & \py{v1[62]} & \py{v1[63]} & \py{v1[64]} & \py{v1[65]}  \\ \hline
+    \makecell{L \\ (\AR{المفعول المطلق})} & \py{v1[66]} & \py{v1[67]} & \py{v1[68]} & \py{v1[69]}  & \py{v1[70]} & \py{v1[71]}  \\ \hline
+      \makecell{M \\ \AR{أداةُ عَطْفٍ غير })\\\AR{واو العطف)}} & \py{v1[72]} & \py{v1[73]} & \py{v1[74]}  & \py{v1[75]} & \py{v1[76]} & \py{v1[77]} \\ \hline
+    \makecell{.} & \py{v1[78]} & \py{v1[79]} & \py{v1[80]} & \py{v1[81]} & \py{v1[82]} & \py{v1[83]} \\
+    \hline 
+    
+    \end{tabular}
+    \label{tab:tab9}
+\end{center}
+\caption{Performances for each tag of our ingredient extractor for fold 4 and for the second layer with $\lambda = 4$ }
+\end{table}
+
+
+
+
+
+
+\renewcommand{\tabcolsep}{2pt}
+\begin{table}[!ht]
+
+    \begin{tabular}{| l | l | l | l | l || l | l | l | l |}
+    \cline{2-9}
+		\multicolumn{1}{c|}{}  &	\multicolumn{4}{c||}{\makecell{First Layer \\ first order \\ HMM}} & \multicolumn{4}{c|}{\makecell{Second Layer \\ second order \\ HMM}}\\
+    \hline
+    \makecell{Tag} & accuracy & f1 score & \makecell{accuracy \\ unknown \\ words} & \makecell{accuracy \\ known \\ words} & accuracy & f1 score & \makecell{ accuracy \\ unknown \\ words } & \makecell{accuracy \\ known \\ words}  \\ \hline
+    \makecell{A \\ (\AR{إسم})} & \py{v[0]} & \py{v[1]} & \py{v[2]} & \py{v[3]} & \py{v1[0]} & \py{v1[1]} & \py{v1[2]} & \py{v1[3]} \\ \hline
+    \makecell{B \\ (\AR{رقم})} & \py{v[6]} & \py{v[7]} & \py{v[8]} & \py{v[9]} & \py{v1[6]} & \py{v1[7]} & \py{v1[8]} & \py{v1[9]} \\ \hline
+    \makecell{C \\ (\AR{إسم معرف})} & \py{v[12]} & \py{v[13]} & \py{v[14]} & \py{v[15]} & \py{v1[12]} & \py{v1[13]} & \py{v1[14]} & \py{v1[15]} \\ \hline
+    \makecell{D \\ (\AR{إضافة})} & \py{v[18]} & \py{v[19]} & \py{v[20]} & \py{v[21]} & \py{v1[18]} & \py{v1[19]} & \py{v1[20]} & \py{v1[21]} \\ \hline
+    \makecell{E \\ (\AR{منعوت})} & \py{v[24]} & \py{v[25]} & \py{v[26]} & \py{v[27]} & \py{v1[24]} & \py{v1[25]} & \py{v1[26]} & \py{v1[27]} \\ \hline
+    \makecell{F \\ (\AR{نعت})} & \py{v[30]} & \py{v[31]} & \py{v[32]} & \py{v[33]} & \py{v1[30]} & \py{v1[31]} &\py{v1[32]}  & \py{v1[33]} \\
+    \hline
+    \makecell{G \\ (\AR{حرف جر})} & \py{v[36]} & \py{v[37]} & \py{v[38]} & \py{v[39]} & \py{v1[36]} & \py{v1[37]} & \py{v1[38]} & \py{v1[39]} \\
+    \hline
+    \makecell{H \\ (\AR{إسم مجرور})} & \py{v[42]} & \py{v[43]} & \py{v[44]} & \py{v[45]} & \py{v1[42]} & \py{v1[43]} & \py{v1[44]} & \py{v1[45]} \\
+    \hline
+    \makecell{I \\ (\AR{وحدة قيس})} & \py{v[48]} & \py{v[49]} & \py{v[50]} & \py{v[51]} & \py{v1[48]} & \py{v1[49]} & \py{v1[50]}  & \py{v1[51]} \\ \hline
+    \makecell{J \\ (\AR{واو العطف})} & \py{v[54]} & \py{v[55]} & \py{v[56]} & \py{v[57]} & \py{v1[54]} & \py{v1[55]} & \py{v1[56]} & \py{v1[57]} \\
+    \hline 
+    \makecell{K \\ \AR{فعل مبني })\\\AR{للمجهول)}} & \py{v[60]} & \py{v[61]} & \py{v[62]} & \py{v[63]} & \py{v1[60]} & \py{v1[61]} & \py{v1[62]} & \py{v1[63]} \\
+    \hline
+    \makecell{L \\ (\AR{المفعول المطلق})} & \py{v[66]} & \py{v[67]} & \py{v[68]} & \py{v[69]} & \py{v1[66]} & \py{v1[67]} & \py{v1[68]} & \py{v1[69]} \\
+    \hline
+    \makecell{M \\ \AR{أداةُ عَطْفٍ غير })\\\AR{واو العطف)}} & \py{v[72]} & \py{v[73]} & \py{v[74]} & \py{v[75]} & \py{v1[72]} & \py{v1[73]} & \py{v1[74]}  & \py{v1[75]} \\ \hline
+    \makecell{.} & \py{v[78]} & \py{v[79]} & \py{v[80]} & \py{v[81]} & \py{v1[78]} & \py{v1[79]} & \py{v1[80]} & \py{v1[81]} \\
+    \hline 
+    
+    \end{tabular}
+    \label{tab:tab10}
+
+\caption{Performances for each tag of our ingredient extractor for fold 4 and for the first and second layer with $\lambda = 4$  }
+
+\end{table}
+
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l | l | l | l | l |}
+    \cline{2-9}
+		\multicolumn{1}{c|}{}  &	\multicolumn{4}{c|}{\makecell{First Layer \\ first order \\ HMM}} & \multicolumn{4}{c|}{\makecell{Second Layer \\ second order \\ HMM}}\\
+    \hline
+    Fold & accuracy & f1 score & \makecell{accuracy \\ unknown \\ words} & \makecell{accuracy \\ known \\ words} & accuracy & f1 score & \makecell{ accuracy \\ unknown \\ words } & \makecell{accuracy \\ known \\ words}  \\ \hline
+    0 &90.33 \% &70.61 \% & 50.55 \% & 92.14 \% & 95.43 \% & 66.98 \% & 61.54 \% & 96.97 \% \\ \hline
+    1 & 87.65 \% & 73.73 \% & 52.03 \% & 89.76 \% & 93.92 \% &65.93 \% & 70.73 \% & 95.28 \% \\ \hline
+    2 & 88.97 \% & 75.28 \% &66.99 \% & 90.16 \% &94.44 \% &66.9 \% & 66.02 \% & 95.97 \% \\ \hline
+    3 & 87.67 \% & 72.16 \%  & 66.27 \% & 88.6 \% & 94.88 \% & 66.9 \% & 63.86 \% & 96.22 \% \\ \hline
+    4 & \py{v[-6]} & \py{v[-5]} & \py{v[-4]} & \py{v[-3]} & \py{v1[-6]} & \py{v1[-5]} & \py{v1[-4]} & \py{v1[-3]} \\ \hline
+    5 & -  & -  & -  & -  & -  & - & - & - \\
+    \hline
+    6 & -  & -  & -  & -  & -  & - & - & - \\
+    \hline
+    7 & -  & -  & -  & -  & -  & - & - & - \\
+    \hline
+    8 & -  & -  & -  & -  & -  & - & - & - \\ \hline
+    9 & -  & -  & -  & -  & -  & - & - & - \\
+    \hline \hline
+    Avg & -  & -  & -  & -  & -  & - & - & - \\
+    \hline
+    
+    \end{tabular}
+    \label{tab:tab10}
+\end{center}
+\caption{Performances of our ingredient extractor in predicting ingredients states for fold 4 with $\lambda = 4$}
+\end{table}
+
+\end{document}
