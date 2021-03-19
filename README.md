@@ -1,9 +1,9 @@
 # Hidden-Markov-Based-Mathematical-Model
 
-The file first order hidden markov model use the first order model to predict ingredient states
+The file first order hidden markov model uses the first order model to predict ingredient states.
 
-The file second order hidden markov model use the second order model to predict ingredient states
+The file second order hidden markov model uses the second order model to predict ingredient states.
 
-The file ingredient extractor use the modified Viterbi algorithm to predict ingredient states
+The file ingredient extractor uses the modified Viterbi algorithm to predict ingredient states.
 
 When a file contains code(1).py code(2).py , code(1).py is used to calculate results in first layer and code(2).py is used to calculate results in second layer , run code(1).py first then code(2).py in spyder, otherwise copy paste code(1).py on top of cof code(2).py when you want to calculate results on second layer.
