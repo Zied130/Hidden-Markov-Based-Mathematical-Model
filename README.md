@@ -1,4 +1,4 @@
-# Hidden-Markov-Based-Mathematical-Model
+# Hidden Markov Based Mathematical Model dedicated to Extract Ingredients from Recipe Text
 
 The file first order hidden markov model uses the first order model to predict ingredient states.
 
