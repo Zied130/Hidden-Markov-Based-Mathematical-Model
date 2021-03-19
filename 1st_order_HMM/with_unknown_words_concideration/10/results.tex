@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[arabic,english]{babel}
+\DeclareMathSymbol{\mtimes}{\mathbin}{symbols}{"02}
+\usepackage{amsmath,amssymb,scalefnt}
+\usepackage{makecell}
+\usepackage{tikz}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{pgfplots}
+\usepackage{apacite}
+\usepackage[most]{tcolorbox}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{pythontex}
+
+\begin{document}
+
+\begin{pycode}
+v=['96.96 \\%', '64.33 \\%', '73.33 \\%', '98.6 \\%', '15', '215', '99.47 \\%', '49.87 \\%', '50.0 \\%', '100.0 \\%', '2', '186', '91.41 \\%', '91.41 \\%', '66.67 \\%', '94.48 \\%', '18', '145', '85.45 \\%', '84.79 \\%', '47.37 \\%', '90.41 \\%', '19', '146', '97.69 \\%', '97.55 \\%', '66.67 \\%', '99.19 \\%', '6', '124', '86.13 \\%', '57.42 \\%', '61.54 \\%', '88.71 \\%', '13', '124', '100.0 \\%', '100.0 \\%', 'NULL', '100.0 \\%', '0', '59', '83.33 \\%', '54.87 \\%', '71.43 \\%', '88.24 \\%', '14', '34', '100.0 \\%', '100.0 \\%', '100.0 \\%', '100.0 \\%', '2', '92', '100.0 \\%', '100.0 \\%', 'NULL', '100.0 \\%', '0', '40', '84.48 \\%', '45.79 \\%', '75.0 \\%', '86.0 \\%', '8', '50', 'NULL', 'NULL', 'NULL', 'NULL', '0', '0', '83.33 \\%', '45.45 \\%', 'NULL', '83.33 \\%', '0', '12', '100.0 \\%', '100.0 \\%', 'NULL', '100.0 \\%', '0', '390', '94.92 \\%', '90.7 \\%', '64.95 \\%', '96.72 \\%', '88', '10.9 \\%']
+\end{pycode}
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l | l | l |}
+    \hline
+    \makecell{tag} & accuracy & f1 score & \makecell{accuracy for \\ unknown \\ words} & \makecell{accuracy for \\ known \\ words} & \makecell{number of \\ unknown \\ words} & \makecell{number of \\ known \\ words} \\ \hline
+    \makecell{A \\ (\AR{إسم})}& \py{v[0]} & \py{v[1]} & \py{v[2]} & \py{v[3]} & \py{v[4]} & \py{v[5]}  \\ \hline
+    \makecell{B \\ (\AR{رقم})} & \py{v[6]} & \py{v[7]} & \py{v[8]} & \py{v[9]} & \py{v[10]} & \py{v[11]}  \\ \hline
+    \makecell{C \\ (\AR{إسم معرف})} & \py{v[12]} & \py{v[13]} & \py{v[14]} & \py{v[15]} & \py{v[16]} & \py{v[17]}  \\
+    \hline
+    \makecell{D \\ (\AR{إضافة})} & \py{v[18]} & \py{v[19]} & \py{v[20]} & \py{v[21]} & \py{v[22]} & \py{v[23]}  \\ \hline
+    \makecell{E \\ (\AR{منعوت})} & \py{v[24]} & \py{v[25]} & \py{v[26]} & \py{v[27]} & \py{v[28]} & \py{v[29]}  \\ \hline
+    \makecell{F \\ (\AR{نعت})} & \py{v[30]} & \py{v[31]} & \py{v[32]} & \py{v[33]} & \py{v[34]} & \py{v[35]}  \\
+    \hline 
+    \makecell{G \\ (\AR{حرف جر})}& \py{v[36]} & \py{v[37]} & \py{v[38]} & \py{v[39]} & \py{v[40]} & \py{v[41]}  \\ \hline
+    \makecell{H \\ (\AR{إسم مجرور})} & \py{v[42]} & \py{v[43]} & \py{v[44]} & \py{v[45]} & \py{v[46]} & \py{v[47]}  \\ \hline
+    \makecell{I \\ (\AR{وحدة قيس})}& \py{v[48]} & \py{v[49]} & \py{v[50]} & \py{v[51]} & \py{v[52]} & \py{v[53]}  \\ \hline
+    \makecell{J \\ (\AR{واو العطف})} & \py{v[54]} & \py{v[55]} & \py{v[56]} & \py{v[57]} & \py{v[58]} & \py{v[59]}  \\ \hline
+    \makecell{K \\ \AR{فعل مبني })\\\AR{للمجهول)}} & \py{v[60]}& \py{v[61]} & \py{v[62]} & \py{v[63]} & \py{v[64]} & \py{v[65]}  \\ \hline
+    \makecell{L \\ (\AR{المفعول المطلق})} & \py{v[66]} & \py{v[67]} & \py{v[68]} & \py{v[69]}  & \py{v[70]} & \py{v[71]}  \\ \hline
+      \makecell{M \\ \AR{أداةُ عَطْفٍ غير })\\\AR{واو العطف)}} & \py{v[72]} & \py{v[73]} & \py{v[74]}  & \py{v[75]} & \py{v[76]} & \py{v[77]} \\ \hline
+    \makecell{.} & \py{v[78]} & \py{v[79]} & \py{v[80]} & \py{v[81]} & \py{v[82]} & \py{v[83]} \\
+    \hline 
+    
+    \end{tabular}
+    \label{tab:tab9}
+\end{center}
+\caption{Performances for each tag using a first order HMM for fold 9 }
+\end{table}
+
+
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l | l | l |}
+    \hline
+    \makecell{tag} & accuracy & f1 score & \makecell{accuracy for \\ unknown \\ words} & \makecell{accuracy for \\ known \\ words} & \makecell{number of \\ unknown \\ words} & \makecell{unknown \\ words \\ percentage} \\ \hline
+   0& 94.77 \% & 67.67 \% & 67.78 \% & 96.33 \% & 78 & 9.67 \%  \\ \hline
+    1 & 92.96 \% & 65.52 \% & 63.93 \% & 95.14 \% & 107 & 13.26 \%  \\ \hline
+    2 &  94.03 \% & 67.36 \% & 69.9 \% & 95.68 \% & 88& 10.9 \%  \\
+    \hline
+    3  & 93.95 \% & 87.84 \% & 62.65 \% & 95.64 \% & 75 & 9.29 \%  \\ \hline
+   4  & 92.91 \% & 87.29 \% & 66.99 \% & 94.54 \% & 92 & 11.4 \% \\ \hline
+   5&  95.78 \% & 69.61 \% & 76.4 \% & 96.83 \% & 83 & 10.29 \% \\
+    \hline 
+    6&  94.38 \% & 67.53 \% & 54.65 \% & 96.49 \% & 80 & 9.91 \%  \\ \hline
+    7& 95.08 \% & 91.17 \% & 61.22 \% & 97.17 \% & 90 & 11.15 \%  \\ \hline
+    8&  96.83 \% & 94.04 \% & 79.76 \% & 97.7 \% & 77 & 9.54 \% \\ \hline
+    9 & \py{v[-6]} & \py{v[-5]} & \py{v[-4]} & \py{v[-3]} & \py{v[-2]} & \py{v[-1]}  \\ \hline \hline
+   Avg & - & - & - & - &- & - \\ \hline
+  
+    \end{tabular}
+    \label{tab:tab9}
+\end{center}
+\caption{Performances using a first order HMM for fold 9 }
+\end{table}
+
+
+
+
+
+
+
+
+\end{document}
