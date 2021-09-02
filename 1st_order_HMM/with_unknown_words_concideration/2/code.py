@@ -534,10 +534,18 @@ len(word2idx)-w_known,float("{0:.2f}".format(float((len(word2idx)-w_known)/len(w
 
 
 
+v=[]
+
+i=0
+for x in v2:
+    i=i+1
+    if i!=5 :
+        v.append(str(x)+" \%")
+    else :
+        v.append(str(x))
 
 
-
-
+vv.append(v)
 
 
 
