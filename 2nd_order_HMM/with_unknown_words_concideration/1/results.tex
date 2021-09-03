@@ -49,14 +49,16 @@ v=['96.24 \\%', '63.91 \\%', '72.73 \\%', '97.52 \\%', '11', '202', '100.0 \\%',
 \caption{Performances for each tag using a second order HMM for fold 0 }
 \end{table}
 
-
+\begin{pycode}
+vv=[['93.72 \\%', '64.13 \\%', '70.0 \\%', '94.81 \\%', '78', '9.67 \\%']]
+\end{pycode}
 
 \begin{table}
 \begin{center}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
     \makecell{tag} & accuracy & f1 score & \makecell{accuracy for \\ unknown \\ words} & \makecell{accuracy for \\ known \\ words} & \makecell{number of \\ unknown \\ words} & \makecell{unknown \\ words \\ percentage} \\ \hline
-   0& \py{v[-6]} & \py{v[-5]} & \py{v[-4]} & \py{v[-3]} & \py{v[-2]} & \py{v[-1]}  \\ \hline
+   0& \py{vv[0][0]} & \py{vv[0][1]} & \py{vv[0][2]} & \py{vv[0][3]} & \py{vv[0][4]} & \py{vv[0][5]}  \\ \hline
     1 & - & - & - & - &- & -  \\ \hline
     2 & - & - & - & - &- & -  \\
     \hline
