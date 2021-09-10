@@ -532,4 +532,15 @@ v5=[float("{0:.2f}".format(float(accuracy)*100)),float("{0:.2f}".format(float(f1
 float("{0:.2f}".format(float(unknown_ac)*100)),float("{0:.2f}".format(float(known_ac)*100)),
 len(word2idx)-w_known,float("{0:.2f}".format(float((len(word2idx)-w_known)/len(word2idx))*100))]
 
+v=[]
 
+i=0
+for x in v5:
+    i=i+1
+    if i!=5 :
+        v.append(str(x)+" \%")
+    else :
+        v.append(str(x))
+
+
+vv1.append(v)

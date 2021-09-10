@@ -125,6 +125,14 @@ v1=['93.9 \\%', '46.44 \\%', '72.73 \\%', '95.05 \\%', '11', '202', '100.0 \\%',
 
 \end{table}
 
+\begin{pycode}
+vv1=[['90.33 \\%', '70.61 \\%', '50.55 \\%', '92.14 \\%', '78', '9.67 \\%']]
+\end{pycode}
+
+\begin{pycode}
+vv2=[['95.43 \\%', '66.98 \\%', '61.54 \\%', '96.97 \\%', '78', '9.67 \\%']]
+\end{pycode}
+
 
 \begin{table}
 \begin{center}
@@ -133,7 +141,7 @@ v1=['93.9 \\%', '46.44 \\%', '72.73 \\%', '95.05 \\%', '11', '202', '100.0 \\%',
 		\multicolumn{1}{c|}{}  &	\multicolumn{4}{c|}{\makecell{First Layer \\ first order \\ HMM}} & \multicolumn{4}{c|}{\makecell{Second Layer \\ second order \\ HMM}}\\
     \hline
     Fold & accuracy & f1 score & \makecell{accuracy \\ unknown \\ words} & \makecell{accuracy \\ known \\ words} & accuracy & f1 score & \makecell{ accuracy \\ unknown \\ words } & \makecell{accuracy \\ known \\ words}  \\ \hline
-    0 & \py{v[-6]} & \py{v[-5]} & \py{v[-4]} & \py{v[-3]} & \py{v1[-6]} & \py{v1[-5]} & \py{v1[-4]} & \py{v1[-3]} \\ \hline
+    0 & \py{vv1[0][0]} & \py{vv1[0][1]} & \py{vv1[0][2]} & \py{vv1[0][3]} & \py{vv2[0][0]} & \py{vv2[0][1]} & \py{vv2[0][2]} & \py{vv2[0][3]} \\ \hline
     1 & -  & -  & -  & -  & -  & - & - & - \\ \hline
     2 & -  & -  & -  & -  & -  & - & - & - \\ \hline
     3 & -  & -  & -  & -  & -  & - & - & - \\ \hline
